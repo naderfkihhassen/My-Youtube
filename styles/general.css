@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #0f0f0f;
+    color: #f1f1f1;
+    overflow-x: hidden;
+    line-height: 1.4;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+input {
+    font-family: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f0f0f;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #606060;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #909090;
+}
+
+/* Main Content Layout */
+.main-content {
+    margin-left: 240px;
+    margin-top: 56px;
+    padding: 24px;
+    transition: margin-left 0.3s ease;
+    min-height: calc(100vh - 56px);
+}
+
+.main-content.collapsed {
+    margin-left: 0;
+}
+
+/* Hide/Show Pages */
+.video-page {
+    display: none;
+    margin-left: 0;
+    margin-top: 56px;
+    padding: 24px;
+}
+
+.video-page.active {
+    display: flex;
+    gap: 24px;
+}
+
+/* Hide sidebar when video page is active */
+.video-page.active ~ .sidebar {
+    display: none;
+}
+
+/* When video page is active, hide home page and sidebar */
+body:has(.video-page.active) .sidebar {
+    display: none;
+}
+
+body:has(.video-page.active) .main-content {
+    margin-left: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1312px) {
+    .main-content {
+        margin-left: 0;
+    }
+    
+    .sidebar {
+        transform: translateX(-240px);
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content,
+    .video-page {
+        padding: 16px;
+    }
+    
+    .video-page.active {
+        flex-direction: column;
+    }
+    
+    .header-center {
+        margin: 0 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content,
+    .video-page {
+        padding: 12px;
+    }
+    
+    .header-center {
+        display: none;
+    }
+}

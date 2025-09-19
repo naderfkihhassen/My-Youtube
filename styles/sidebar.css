@@ -1,0 +1,148 @@
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 56px;
+    width: 240px;
+    height: calc(100vh - 56px);
+    background-color: #0f0f0f;
+    padding: 12px 0;
+    overflow-y: auto;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    border-right: 1px solid #303030;
+}
+
+.sidebar.collapsed {
+    transform: translateX(-240px);
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 24px;
+    cursor: pointer;
+    gap: 24px;
+    transition: background-color 0.1s ease;
+    border-radius: 0;
+    margin: 0;
+}
+
+.sidebar-item:hover {
+    background-color: #272727;
+}
+
+.sidebar-item.active {
+    background-color: #272727;
+}
+
+.sidebar-icon {
+    width: 24px;
+    height: 24px;
+    fill: #f1f1f1;
+    flex-shrink: 0;
+}
+
+.sidebar-text {
+    font-size: 14px;
+    font-weight: 400;
+    color: #f1f1f1;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Sidebar Sections */
+.sidebar-section {
+    border-bottom: 1px solid #303030;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+.sidebar-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.sidebar-section-title {
+    padding: 8px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #aaaaaa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Mini Sidebar (Collapsed) */
+.sidebar-mini {
+    width: 72px;
+}
+
+.sidebar-mini .sidebar-item {
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px 4px 14px;
+    text-align: center;
+}
+
+.sidebar-mini .sidebar-text {
+    font-size: 10px;
+    line-height: 1.2;
+    white-space: normal;
+    text-align: center;
+}
+
+.sidebar-mini .sidebar-section-title {
+    display: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1312px) {
+    .sidebar {
+        transform: translateX(-240px);
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    
+    /* Overlay for mobile sidebar */
+    .sidebar-overlay {
+        position: fixed;
+        top: 56px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        display: none;
+    }
+    
+    .sidebar-overlay.active {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 240px;
+    }
+}
+
+/* Scrollbar for sidebar */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #606060;
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: #909090;
+}

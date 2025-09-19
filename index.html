@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Dark</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <link rel="stylesheet" href="styles/video.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-left">
+            <button class="menu-btn" id="menuBtn">
+                <svg class="menu-icon" viewBox="0 0 24 24">
+                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                </svg>
+            </button>
+            <a href="#" class="logo" id="logoBtn">
+                <svg width="90" height="20" viewBox="0 0 90 20">
+                    <path d="M27.9727 3.12324C27.6435 1.89323 26.6768 0.926623 25.4468 0.597366C23.2197 2.24288e-07 14.285 0 14.285 0C14.285 0 5.35042 2.24288e-07 3.12323 0.597366C1.89323 0.926623 0.926623 1.89323 0.597366 3.12324C2.24288e-07 5.35042 0 10 0 10C0 10 2.24288e-07 14.6496 0.597366 16.8768C0.926623 18.1068 1.89323 19.0734 3.12323 19.4026C5.35042 20 14.285 20 14.285 20C14.285 20 23.2197 20 25.4468 19.4026C26.6768 19.0734 27.6435 18.1068 27.9727 16.8768C28.5701 14.6496 28.5701 10 28.5701 10C28.5701 10 28.5701 5.35042 27.9727 3.12324Z" fill="#FF0000"/>
+                    <path d="M11.4253 14.2854L18.8477 10.0004L11.4253 5.71533V14.2854Z" fill="white"/>
+                </svg>
+            </a>
+        </div>
+        
+        <div class="header-center">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search" id="searchInput">
+                <button class="search-btn" id="searchBtn">
+                    <svg class="search-icon" viewBox="0 0 24 24">
+                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    </svg>
+                </button>
+            </div>
+            <button class="voice-btn">
+                <svg class="voice-icon" viewBox="0 0 24 24">
+                    <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+                    <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="header-right">
+            <button class="icon-btn">
+                <svg class="header-icon" viewBox="0 0 24 24">
+                    <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
+                </svg>
+            </button>
+            <button class="icon-btn">
+                <svg class="header-icon" viewBox="0 0 24 24">
+                    <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                </svg>
+            </button>
+            <div class="user-avatar"></div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-item active">
+            <svg class="sidebar-icon" viewBox="0 0 24 24">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+            </svg>
+            <span class="sidebar-text">Home</span>
+        </div>
+        <div class="sidebar-item">
+            <svg class="sidebar-icon" viewBox="0 0 24 24">
+                <path d="M9.8 12l-1.4 1.4L12 17l3.6-3.6L14.2 12 12 14.2 9.8 12zm2.2-6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z"/>
+            </svg>
+            <span class="sidebar-text">Explore</span>
+        </div>
+        <div class="sidebar-item">
+            <svg class="sidebar-icon" viewBox="0 0 24 24">
+                <path d="M18 13h-5v5c0 .55-.45 1-1 1s-1-.45-1-1v-5H6c-.55 0-1-.45-1-1s.45-1 1-1h5V6c0-.55.45-1 1-1s1 .45 1 1v5h5c.55 0 1 .45 1 1s-.45 1-1 1z"/>
+            </svg>
+            <span class="sidebar-text">Subscriptions</span>
+        </div>
+        <div class="sidebar-item">
+            <svg class="sidebar-icon" viewBox="0 0 24 24">
+                <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"/>
+            </svg>
+            <span class="sidebar-text">Library</span>
+        </div>
+        <div class="sidebar-item">
+            <svg class="sidebar-icon" viewBox="0 0 24 24">
+                <path d="M14.5 12c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5.67 1.5 1.5 1.5 1.5-.67 1.5-1.5zM21 12h-3.5c0 2.5-2 4.5-4.5 4.5s-4.5-2-4.5-4.5H5c-.28 0-.5-.22-.5-.5s.22-.5.5-.5h3.5c0-2.5 2-4.5 4.5-4.5s4.5 2 4.5 4.5H21c.28 0 .5.22.5.5s-.22.5-.5.5z"/>
+            </svg>
+            <span class="sidebar-text">History</span>
+        </div>
+    </div>
+
+    <!-- Main Content - Home Page -->
+    <div class="main-content" id="homePage">
+        <div class="video-grid" id="videoGrid">
+            <!-- Videos will be populated by JavaScript -->
+            <div style="grid-column: 1 / -1; text-align: center; padding: 20px; color: #aaaaaa; font-size: 14px;">
+                Loading videos...
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Page -->
+    <div class="video-page" id="videoPage">
+        <div class="video-main">
+            <div class="video-player" id="videoPlayer">
+                <!-- Video iframe will be inserted here -->
+            </div>
+            <div class="video-info">
+                <h1 class="video-title-main" id="videoTitleMain"></h1>
+                <div class="video-stats">
+                    <span class="video-views" id="videoViews"></span>
+                    <div class="video-actions">
+                        <button class="action-btn">
+                            <svg class="action-icon" viewBox="0 0 24 24">
+                                <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73z"/>
+                            </svg>
+                            Like
+                        </button>
+                        <button class="action-btn">
+                            <svg class="action-icon" viewBox="0 0 24 24">
+                                <path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73 0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 20l6.58-6.59c.37-.36.59-.86.59-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"/>
+                            </svg>
+                            Dislike
+                        </button>
+                        <button class="action-btn">
+                            <svg class="action-icon" viewBox="0 0 24 24">
+                                <path d="M15 6H3v2h12V6z M15 10H3v2h12v-2z M3 16h8v-2H3v2z M17 6v8.18c-.31-.11-.65-.18-1-.18-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3V8h3V6h-5z"/>
+                            </svg>
+                            Share
+                        </button>
+                        <button class="action-btn">
+                            <svg class="action-icon" viewBox="0 0 24 24">
+                                <path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V7h10v2z"/>
+                            </svg>
+                            Save
+                        </button>
+                    </div>
+                </div>
+                <div class="channel-info">
+                    <div class="channel-avatar-large" id="channelAvatarLarge"></div>
+                    <div class="channel-details">
+                        <h4 class="channel-name" id="channelNameMain"></h4>
+                        <p class="subscriber-count">1.2M subscribers</p>
+                    </div>
+                    <button class="subscribe-btn">Subscribe</button>
+                </div>
+                <div class="video-description">
+                    <p id="videoDescription">Video description goes here...</p>
+                </div>
+            </div>
+            
+            <!-- Comments Section -->
+            <div class="comments-section">
+                <div class="comments-header">
+                    <h3>Comments</h3>
+                    <div class="sort-comments">
+                        <button class="sort-btn">
+                            <svg class="sort-icon" viewBox="0 0 24 24">
+                                <path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"/>
+                            </svg>
+                            Sort by
+                        </button>
+                    </div>
+                </div>
+                <div class="add-comment">
+                    <div class="comment-avatar"></div>
+                    <input type="text" class="comment-input" placeholder="Add a comment...">
+                </div>
+                <div class="comments-list" id="commentsList">
+                    <!-- Comments will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sidebar Videos -->
+        <div class="video-sidebar">
+            <div class="sidebar-videos" id="sidebarVideos">
+                <!-- Recommended videos will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample video data
+        const videosData = [
+            {
+                id: 1,
+                title: "Building a Modern Website with HTML, CSS & JavaScript",
+                author: "CodeMaster",
+                views: "1.2M views",
+                time: "2 days ago",
+                duration: "15:30",
+                thumbnail: "https://i.ytimg.com/vi/G3e-cpL7ofc/hqdefault.jpg",
+                videoUrl: "https://www.youtube.com/embed/G3e-cpL7ofc",
+                description: "Learn how to build a modern, responsive website from scratch using HTML5, CSS3, and vanilla JavaScript. This comprehensive tutorial covers layout design, animations, and interactive features.",
+                channelAvatar: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+            },
+            {
+                id: 2,
+                title: "React Tutorial for Beginners - Complete Course",
+                author: "React Academy",
+                views: "2.1M views",
+                time: "1 week ago",
+                duration: "2:15:45",
+                thumbnail: "https://i.ytimg.com/vi/w7ejDZ8SWv8/hqdefault.jpg",
+                videoUrl: "https://www.youtube.com/embed/w7ejDZ8SWv8",
+                description: "Master React.js with this complete beginner course. Learn components, hooks, state management, and build real-world projects.",
+                channelAvatar: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+            },
+            {
+                id: 3,
+                title: "JavaScript ES6+ Features You Must Know",
+                author: "JS Ninja",
+                views: "856K views",
+                time: "3 days ago",
+                duration: "22:18",
+                thumbnail: "https://i.ytimg.com/vi/nZ1DMMsyVyI/hqdefault.jpg",
+                videoUrl: "https://www.youtube.com/embed/nZ1DMMsyVyI",
+                description: "Explore the latest JavaScript features including arrow functions, destructuring, async/await, modules, and more modern ES6+ syntax.",
+                channelAvatar: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+            },
+            {
+                id: 4,
+                title: "CSS Grid Layout - Complete Guide",
+                author: "Design Pro",
+                views: "943K views",
+                time: "5 days ago",
+                duration: "18:42",
+                thumbnail: "https://i.ytimg.com/vi/jV8B24rSN5o/hqdefault.jpg",
+                videoUrl: "https://www.youtube.com/embed/jV8B24rSN5o",
+                description: "Master CSS Grid Layout with practical examples. Learn to create complex, responsive layouts with ease using this powerful CSS feature.",
+                channelAvatar: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+            },
+            {
+                id: 5,
+                title: "Node.js Crash Course for Beginners",
+                author: "Backend Dev",
+                views: "1.5M views",
+                time: "1 week ago",
+                duration: "1:45:20",
+                thumbnail: "https://i.ytimg.com/vi/fBNz5xF-Kx4/hqdefault.jpg",
+                videoUrl: "https://www.youtube.com/embed/fBNz5xF-Kx4",
+                description: "Get started with Node.js and server-side JavaScript. Build REST APIs, work with databases, and create full-stack applications.",
+                channelAvatar: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)"
+            },
+            {
+                id: 6,
+                title: "Python Machine Learning Projects",
+                author: "AI Expert",
+                views: "2.3M views",
+                time: "2 weeks ago",
+                duration: "3:12:15",
+                thumbnail: "https://i.ytimg.com/vi/WFr2WgN9_xE/hqdefault.jpg",
+                videoUrl: "https://www.youtube.com/embed/WFr2WgN9_xE",
+                description: "Build 5 machine learning projects using Python, scikit-learn, and TensorFlow. Perfect for beginners and intermediate developers.",
+                channelAvatar: "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)"
+            }
+        ];
+
+        // Sample comments data
+        const commentsData = [
+            {
+                id: 1,
+                author: "TechEnthusiast",
+                time: "2 hours ago",
+                text: "This is exactly what I was looking for! The explanation is so clear and easy to follow. Thanks for the great tutorial!",
+                likes: 42,
+                avatar: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+            },
+            {
+                id: 2,
+                author: "CodeNewbie",
+                time: "5 hours ago",
+                text: "As a beginner, this video helped me understand the concepts much better. The examples are practical and well-explained.",
+                likes: 28,
+                avatar: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+            },
+            {
+                id: 3,
+                author: "WebDeveloper",
+                time: "1 day ago",
+                text: "Great content! I've been struggling with this topic for weeks and this video cleared up all my confusion. Keep up the excellent work!",
+                likes: 15,
+                avatar: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+            }
+        ];
+
+        // DOM elements
+        let menuBtn, sidebar, mainContent, homePage, videoPage, videoGrid, logoBtn, searchInput, searchBtn;
+        let currentVideo = null;
+        let sidebarCollapsed = false;
+
+        // Initialize DOM elements
+        function initializeElements() {
+            menuBtn = document.getElementById('menuBtn');
+            sidebar = document.getElementById('sidebar');
+            mainContent = document.querySelector('.main-content');
+            homePage = document.getElementById('homePage');
+            videoPage = document.getElementById('videoPage');
+            videoGrid = document.getElementById('videoGrid');
+            logoBtn = document.getElementById('logoBtn');
+            searchInput = document.getElementById('searchInput');
+            searchBtn = document.getElementById('searchBtn');
+        }
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing app...');
+            initializeElements();
+            loadVideos();
+            setupEventListeners();
+            checkWindowSize();
+        });
+
+        // Event listeners
+        function setupEventListeners() {
+            if (menuBtn) menuBtn.addEventListener('click', toggleSidebar);
+            if (logoBtn) logoBtn.addEventListener('click', showHomePage);
+            window.addEventListener('resize', checkWindowSize);
+            
+            if (searchBtn) searchBtn.addEventListener('click', performSearch);
+            if (searchInput) {
+                searchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        performSearch();
+                    }
+                });
+            }
+        }
+
+        // Toggle sidebar
+        function toggleSidebar() {
+            sidebarCollapsed = !sidebarCollapsed;
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('collapsed');
+        }
+
+        // Check window size for responsive behavior
+        function checkWindowSize() {
+            if (window.innerWidth <= 1312) {
+                sidebar.classList.add('collapsed');
+                mainContent.classList.add('collapsed');
+                sidebarCollapsed = true;
+            } else {
+                if (!sidebarCollapsed) {
+                    sidebar.classList.remove('collapsed');
+                    mainContent.classList.remove('collapsed');
+                }
+            }
+        }
+
+        // Load videos on home page
+        function loadVideos() {
+            console.log('Loading videos...');
+            
+            if (!videoGrid) {
+                console.error('videoGrid element not found!');
+                return;
+            }
+            
+            videoGrid.innerHTML = '';
+            
+            videosData.forEach((video, index) => {
+                console.log(`Creating video card ${index + 1}:`, video.title);
+                const videoCard = createVideoCard(video);
+                videoGrid.appendChild(videoCard);
+            });
+            
+            console.log('Videos loaded successfully!');
+        }
+
+        // Create video card element
+        function createVideoCard(video) {
+            const videoCard = document.createElement('div');
+            videoCard.className = 'video-card';
+            videoCard.setAttribute('data-video-id', video.id);
+            
+            videoCard.innerHTML = `
+                <div class="video-thumbnail">
+                    <img src="${video.thumbnail}" alt="${video.title}">
+                    <span class="video-duration">${video.duration}</span>
+                </div>
+                <div class="video-info">
+                    <div class="channel-avatar" style="background: ${video.channelAvatar}"></div>
+                    <div class="video-details">
+                        <h3>${video.title}</h3>
+                        <div class="video-meta">
+                            <div class="channel-name">${video.author}</div>
+                            <div>${video.views} • ${video.time}</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            videoCard.addEventListener('click', () => showVideoPage(video));
+            
+            return videoCard;
+        }
+
+        // Show video page
+        function showVideoPage(video) {
+            currentVideo = video;
+            
+            // Hide home page and sidebar, show video page
+            homePage.style.display = 'none';
+            sidebar.style.display = 'none';
+            videoPage.classList.add('active');
+            
+            const videoPlayer = document.getElementById('videoPlayer');
+            videoPlayer.innerHTML = `<iframe src="${video.videoUrl}" allowfullscreen></iframe>`;
+            
+            document.getElementById('videoTitleMain').textContent = video.title;
+            document.getElementById('videoViews').textContent = `${video.views} • ${video.time}`;
+            document.getElementById('channelNameMain').textContent = video.author;
+            document.getElementById('channelAvatarLarge').style.background = video.channelAvatar;
+            document.getElementById('videoDescription').textContent = video.description;
+            
+            loadSidebarVideos();
+            loadComments();
+            window.scrollTo(0, 0);
+        }
+
+        // Show home page
+        function showHomePage() {
+            videoPage.classList.remove('active');
+            homePage.style.display = 'block';
+            sidebar.style.display = 'block';
+            currentVideo = null;
+            
+            const videoPlayer = document.getElementById('videoPlayer');
+            videoPlayer.innerHTML = '';
+            window.scrollTo(0, 0);
+        }
+
+        // Load sidebar videos
+        function loadSidebarVideos() {
+            const sidebarVideos = document.getElementById('sidebarVideos');
+            sidebarVideos.innerHTML = '';
+            
+            const recommendedVideos = videosData.filter(video => video.id !== currentVideo.id);
+            
+            recommendedVideos.forEach(video => {
+                const sidebarVideo = createSidebarVideo(video);
+                sidebarVideos.appendChild(sidebarVideo);
+            });
+        }
+
+        // Create sidebar video element
+        function createSidebarVideo(video) {
+            const sidebarVideo = document.createElement('div');
+            sidebarVideo.className = 'sidebar-video';
+            
+            sidebarVideo.innerHTML = `
+                <div class="sidebar-video-thumbnail">
+                    <img src="${video.thumbnail}" alt="${video.title}">
+                    <span class="sidebar-video-duration">${video.duration}</span>
+                </div>
+                <div class="sidebar-video-info">
+                    <div class="sidebar-video-title">${video.title}</div>
+                    <div class="sidebar-video-author">${video.author}</div>
+                    <div class="sidebar-video-stats">${video.views} • ${video.time}</div>
+                </div>
+            `;
+            
+            sidebarVideo.addEventListener('click', () => showVideoPage(video));
+            return sidebarVideo;
+        }
+
+        // Load comments
+        function loadComments() {
+            const commentsList = document.getElementById('commentsList');
+            commentsList.innerHTML = '';
+            
+            commentsData.forEach(comment => {
+                const commentElement = createCommentElement(comment);
+                commentsList.appendChild(commentElement);
+            });
+        }
+
+        // Create comment element
+        function createCommentElement(comment) {
+            const commentDiv = document.createElement('div');
+            commentDiv.className = 'comment';
+            
+            commentDiv.innerHTML = `
+                <div class="comment-avatar" style="background: ${comment.avatar}"></div>
+                <div class="comment-content">
+                    <div class="comment-header">
+                        <span class="comment-author">${comment.author}</span>
+                        <span class="comment-time">${comment.time}</span>
+                    </div>
+                    <div class="comment-text">${comment.text}</div>
+                    <div class="comment-actions">
+                        <button class="comment-action">${comment.likes} 👍</button>
+                        <button class="comment-action">👎</button>
+                        <button class="comment-action">Reply</button>
+                    </div>
+                </div>
+            `;
+            
+            return commentDiv;
+        }
+
+        // Search functionality
+        function performSearch() {
+            if (!searchInput) return;
+            
+            const query = searchInput.value.trim().toLowerCase();
+            
+            if (query === '') {
+                loadVideos();
+                return;
+            }
+            
+            const filteredVideos = videosData.filter(video => 
+                video.title.toLowerCase().includes(query) ||
+                video.author.toLowerCase().includes(query)
+            );
+            
+            displaySearchResults(filteredVideos, query);
+        }
+
+        function displaySearchResults(videos, query) {
+            if (!videoGrid) return;
+            
+            videoGrid.innerHTML = '';
+            
+            if (videos.length === 0) {
+                videoGrid.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #aaaaaa;">
+                        <h3>No results found for "${query}"</h3>
+                        <p>Try different keywords</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            videos.forEach(video => {
+                const videoCard = createVideoCard(video);
+                videoGrid.appendChild(videoCard);
+            });
+        }
+    </script>
+</body>
+</html>
